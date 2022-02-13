@@ -174,11 +174,15 @@ h2 {
   color: #2800FF;
 }
 
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .radio {
   background: #AFECE0;
   margin: 5px;
   padding: 3px;
   box-sizing: border-box;
-  display: block;
   width: 100px;
 }
