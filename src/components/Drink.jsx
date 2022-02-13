@@ -1,12 +1,11 @@
 import React from "react";
 
 export default function Drink({ drink }) {
-  const amount = drink.amount == "pint" ? "pint" : drink.amount + "ml";
-  
+  const units = Math.round((drink.percentage * drink.amount) / 100) / 10;
   
   return (
     <div>
-      {amount} of <b>{drink.name}</b>
+      {drink.displayAmount} of {drink.percentage}% <b>{drink.name}</b>, {units} units.
     </div>
   )
 }
