@@ -17,6 +17,7 @@ export default function Home() {
   return (
     <>
       {drinks && drinks.map((drink) => <Drink key={drink.id} drink={drink} />)}
+      <p></p>
     </>
   );
 }
