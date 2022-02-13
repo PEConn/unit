@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import Drink from "./components/Drink";
+import DrinkPicker from "./components/DrinkPicker";
 
 import "./styles/styles.css";
 
@@ -10,14 +11,16 @@ export default function Home() {
     { id: 2, name: "Wine", amount: 125, displayAmount: "Small Glass", percentage: 10}
   ]);
   
-  const total = drinks
+  const total = Math.round(drinks
       .map(drink => drink.amount * drink.percentage)
-      .reduce((a, b) => a + b, 0);
+      .reduce((a, b) => a + b, 0) / 100) / 10;
   
   return (
     <>
       {drinks && drinks.map((drink) => <Drink key={drink.id} drink={drink} />)}
-      <p></p>
+      <p>{total} units in total.</p>
+      
+      <DrinkPicker />
     </>
   );
 }
