@@ -1,21 +1,19 @@
 import React from "react";
 
-export default function RadioGroup({ entries }) {
+export default function RadioGroup({ label, entries }) {
   return (
     <>
-      <
-    </>
-  );
-        <p>Drink:</p>
-      {drinks.map(drink => {
-        return (
-          <label key={drink}>
+      <p>{label}</p>
+      {entries.map(entry => (
+          <label className="radio" key={entry}>
             <input
               type="radio"
-              name="drink"
-              value={drink} />
-            {drink}
+              name={label}
+              value={entry} />
+            {entry}
           </label>
         )
-      })}
+      )}
+    </>
+  );
 }

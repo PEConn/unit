@@ -1,28 +1,15 @@
 import React from 'react';
 
+import RadioGroup from './RadioGroup';
+
 export default function DrinkPicker() {
   const drinks = [ "Beer", "Wine", "Spirit" ];
+  const amounts = [ "25ml", "50ml", "125ml", "250ml", "330ml", "Pint", "660ml" ];
   
   return (
     <div>
-      <p>Drink:</p>
-      {drinks.map(drink => {
-        return (
-          <label key={drink}>
-            <input
-              type="radio"
-              name="drink"
-              value={drink} />
-            {drink}
-          </label>
-        )
-      })}
-      <label><input type="radio" name="drink" value="beer" checked />Beer</label><br />
-      <label><input type="radio" name="drink" value="wine" />Wine</label><br />
-      <label><input type="radio" name="drink" value="spirit" />Spirit</label><br />
-      
-      <p>Amount:</p>
-      <label></label>
+      <RadioGroup label="Drinks" entries={drinks} />
+      <RadioGroup label="Amounts" entries={amounts} />
     </div>
   )
 }
