@@ -188,5 +188,12 @@ h2 {
 }
 
 .percentage-input {
-  margin: auto;
+  margin: 5px auto;
+  display: block;
+}
+
+.add-drink {
+  margin: 5px auto;
+  padding: 5px 20px;
+  display: block;
 }
