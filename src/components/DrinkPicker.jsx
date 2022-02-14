@@ -24,6 +24,7 @@ export default function DrinkPicker({ addDrink }) {
       <RadioGroup label="Amounts" entries={amounts} currentEntry={amount} setEntry={setAmount} />
       
       <input
+        className="percentage-input"
         type="number"
         min="0"
         max="100"

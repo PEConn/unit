@@ -22,7 +22,6 @@ export function getAmountInMl(drink) {
 
 export function getUnits(drink) {
   const amount = getAmountInMl(drink);
-  console.log(amount)
   const units = (drink.percentage * amount) / 1000;
   return roundTo(units, 1);
 }

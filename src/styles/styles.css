@@ -186,3 +186,7 @@ h2 {
   box-sizing: border-box;
   width: 100px;
 }
+
+.percentage-input {
+  margin: auto;
+}
