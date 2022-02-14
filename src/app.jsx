@@ -12,8 +12,6 @@ const DRINKS_KEY = "drinks";
 
 export default function Home() {
   const [drinks, setDrinksRaw] = useState([
-    { name: "Beer", amount: "Pint", percentage: 4.1 },
-    { name: "Wine", amount: "125ml", percentage: 10 }
   ]);
   
   const storage = window.localStorage;
@@ -44,7 +42,9 @@ export default function Home() {
   
   return (
     <>
+      <h3>Log</h3>
       {drinks && drinks.map((drink, i) => <Drink key={i} drink={drink} />)}
+      {drinks.length == 0 && <p>Nothing added yet</p>}
       <p>{total} units in total.</p>
       <button onClick={(e) => setDrinks([])}>Clear</button>
       

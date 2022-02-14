@@ -105,6 +105,9 @@ END Glitch hello-app default styles
 body {
   font-family: HK Grotesk;
   background-color: var(--color-bg);
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 10px;
 }
 .wrapper {
   min-height: var(--wrapper-height);
@@ -189,6 +192,12 @@ h2 {
 
 .percentage-input {
   margin: 5px auto;
+  display: block;
+}
+
+.percentage-slider {
+  width: 100%;
+  margin: 20px auto;
   display: block;
 }
 

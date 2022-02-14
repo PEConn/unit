@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import RadioGroup from './RadioGroup';
 
 export default function DrinkPicker({ addDrink }) {
-  const drinks = [ "Beer", "Wine", "Spirit", "Liqueur", "Low Alcohol Beer" ];
+  const drinks = [ "Beer", "Wine", "Spirit", "Liqueur", "Low %" ];
   const amounts = [ "25ml", "50ml", "125ml", "250ml", "Half Pint", "330ml", "Pint", "660ml" ];
   
   const [drink, setDrink] = useState(drinks[0]);
@@ -19,8 +19,8 @@ export default function DrinkPicker({ addDrink }) {
   }
   
   let sliderMin = 0;
-  let sliderMax = 0;
-  let sliderStep = 0;
+  let sliderMax = 100;
+  let sliderStep = 1;
   
   if (drink === "Beer") {
     sliderMin = 3;
@@ -38,6 +38,10 @@ export default function DrinkPicker({ addDrink }) {
     sliderMin = 8;
     sliderMax = 20;
     sliderStep = 1;
+  } else if (drink === "Low %") {
+    sliderMin = 0;
+    sliderMax = 3;
+    sliderStep = 0.5;
   }
   
   return (
@@ -45,6 +49,7 @@ export default function DrinkPicker({ addDrink }) {
       <RadioGroup label="Drinks" entries={drinks} currentEntry={drink} setEntry={setDrink} />
       <RadioGroup label="Amounts" entries={amounts} currentEntry={amount} setEntry={setAmount} />
       
+      <h3>Percentage</h3>
       <input
         className="percentage-input"
         type="number"
