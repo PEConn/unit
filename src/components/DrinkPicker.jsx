@@ -60,6 +60,10 @@ export default function DrinkPicker({ addDrink }) {
         onChange={e => setPercentage(e.currentTarget.value)}
         />
       
+      <div className="sliderMinMax">
+        <span>{sliderMin}</span>
+        <span>{sliderMax}</span>
+      </div>
       <input
         className="percentage-slider"
         type="range"

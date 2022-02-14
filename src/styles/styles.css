@@ -187,17 +187,18 @@ h2 {
   margin: 5px;
   padding: 3px;
   box-sizing: border-box;
-  width: 100px;
+  flex-basis: 30%;
+  flex-grow: 1;
 }
 
 .percentage-input {
-  margin: 5px auto;
+  margin: 5px auto 10px;
   display: block;
 }
 
 .percentage-slider {
   width: 100%;
-  margin: 20px auto;
+  margin: 0px auto 20px;
   display: block;
 }
 
@@ -205,4 +206,10 @@ h2 {
   margin: 5px auto;
   padding: 5px 20px;
   display: block;
+}
+
+.sliderMinMax {
+  display: flex;
+  justify-content: space-between;
+  font-size: small;
 }
