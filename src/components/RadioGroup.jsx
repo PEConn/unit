@@ -1,6 +1,8 @@
 import React from "react";
 
-export default function RadioGroup({ label, entries }) {
+export default function RadioGroup({ label, entries, currentEntry, setEntry }) {
+  
+  
   return (
     <>
       <h3>{label}:</h3>
@@ -10,7 +12,9 @@ export default function RadioGroup({ label, entries }) {
               <input
                 type="radio"
                 name={label}
-                value={entry} />
+                value={entry}
+                checked={entry === currentEntry}
+                onChange={e => setEntry(e.currentTarget.value)} />
               <span>{entry}</span>
             </label>
           )

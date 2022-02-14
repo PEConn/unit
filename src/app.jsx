@@ -15,6 +15,11 @@ export default function Home() {
       .map(drink => drink.amount * drink.percentage)
       .reduce((a, b) => a + b, 0) / 100) / 10;
   
+  const addDrink = (drink) => {
+    
+    setDrinks(current => [...current, drink])
+  };
+  
   return (
     <>
       {drinks && drinks.map((drink) => <Drink key={drink.id} drink={drink} />)}
