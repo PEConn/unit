@@ -192,6 +192,10 @@ h2 {
   text-align: center;
 }
 
+.radio span {
+  margin-left: 3px;
+}
+
 .percentage-input {
   margin: 5px auto 10px;
   display: block;
