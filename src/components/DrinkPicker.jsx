@@ -2,13 +2,21 @@ import React, { useState } from 'react';
 
 import RadioGroup from './RadioGroup';
 
-export default function DrinkPicker() {
+export default function DrinkPicker({ addDrink }) {
   const drinks = [ "Beer", "Wine", "Spirit" ];
-  const amounts = [ "25ml", "50ml", "125ml", "250ml", "330ml", "Pint", "660ml" ];
+  const amounts = [ "25ml", "50ml", "125ml", "250ml", "Half Pint", "330ml", "Pint", "660ml" ];
   
   const [drink, setDrink] = useState(drinks[0]);
-  const [amount, setAmount] = useState(amounts[5]);
+  const [amount, setAmount] = useState(amounts[6]);
   const [percentage, setPercentage] = useState(4.0);
+  
+  const onSubmit = (e) => {
+    addDrink({
+      name: drink,
+      amount: amount,
+      percentage: percentage
+    });
+  }
   
   return (
     <div>
@@ -24,7 +32,7 @@ export default function DrinkPicker() {
         onChange={e => setPercentage(e.currentTarget.value)}
         /><br />
       
-      Add {amount} of {percentage}% {drink}?
+      <button onClick={onSubmit}>Add {amount} of {percentage}% {drink}</button>
     </div>
   )
 }

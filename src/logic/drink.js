@@ -1,15 +1,20 @@
-// { id: 1, name: "Beer", amount: 568, displayAmount: "Pint", percentage: 4.1 }
+// { id: 1, name: "Beer", amount: "125ml", percentage: 4.1 }
+
+import { roundTo } from "./utils";
 
 export function getAmountInMl(drink) {
   const amount = drink.amount;
   
   if (amount.endsWith("ml")) {
-    console.log(amount.substring(0, drink.length - 2));
-    return parseInt(amount.substring(0, drink.length - 2));
+    return parseInt(amount.substring(0, amount.length - 2));
   }
   
   if (amount == "Pint") {
     return 568;
+  }
+  
+  if (amount == "Half Pint") {
+    return 268 / 2;
   }
   
   return 0;
@@ -17,6 +22,7 @@ export function getAmountInMl(drink) {
 
 export function getUnits(drink) {
   const amount = getAmountInMl(drink);
-  const units = Math.round((drink.percentage * amount) / 100) / 10;
-  return units;
+  console.log(amount)
+  const units = (drink.percentage * amount) / 1000;
+  return roundTo(units, 1);
 }
