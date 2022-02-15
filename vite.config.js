@@ -10,7 +10,8 @@ export default defineConfig({
   ],
   
   build: {
-    outDir: "build"
+    outDir: "build",
+    assetInlineLimit: 0
   },
   server: {
     strictPort: true,
