@@ -11,10 +11,13 @@ export default function DrinkPicker({ addDrink }) {
   const [percentage, setPercentage] = useState(4.0);
   
   const onSubmit = (e) => {
+    const day = new Date().toLocaleString('en-us', {  weekday: 'short' });
+    
     addDrink({
       name: drink,
       amount: amount,
-      percentage: percentage
+      percentage: percentage,
+      day: day
     });
   }
   

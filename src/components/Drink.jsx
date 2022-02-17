@@ -7,7 +7,7 @@ export default function Drink({ drink }) {
   
   return (
     <div>
-      {drink.amount} of {drink.percentage}% <b>{drink.name}</b>, {units} units.
+      {drink.day}: {drink.amount} of {drink.percentage}% <b>{drink.name}</b>, {units} units.
     </div>
   )
 }
