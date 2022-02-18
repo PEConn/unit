@@ -7,8 +7,8 @@ export default function Drink({ drink, removeDrink }) {
   
   return (
     <div>
-      {drink.day}: {drink.amount} of {drink.percentage}% <b>{drink.name}</b>, {units} units.
-      <span style={{ color: "grey" }} onClick={() => removeDrink(drink.id)}>(delete)</span>
+      {drink.day}: {drink.amount} of {drink.percentage}% <b>{drink.name}</b>, {units} units.&nbsp;
+      <span style={{ color: "grey" }} onClick={() => removeDrink(drink.id)}>🗑️</span>
     </div>
   )
 }
