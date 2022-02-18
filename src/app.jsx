@@ -37,13 +37,19 @@ export default function Home() {
   const total = roundTo(drinks.reduce((acc, drink) => acc + getUnits(drink), 0), 1);
   
   const addDrink = (drink) => {
-    setDrinks([...drinks, drink]);
+    const nextId = drinks.length === 0 ? 0 : (drinks[drinks.length - 1].id + 1);
+    
+    setDrinks([...drinks, { id: nextId, ...drink }]);
+  };
+  
+  const removeDrink = (id) => {
+    setDrinks(drinks.filter(drink => drink.id !== id))
   };
   
   return (
     <>
       <h3>Log</h3>
-      {drinks && drinks.map((drink, i) => <Drink key={i} drink={drink} />)}
+      {drinks && drinks.map((drink, i) => <Drink key={i} drink={drink} removeDrink={removeDrink} />)}
       {drinks.length == 0 && <p>Nothing added yet</p>}
       <p>{total} units in total.</p>
       <button onClick={(e) => setDrinks([])}>Clear</button>
