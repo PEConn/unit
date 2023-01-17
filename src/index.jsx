@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./app.jsx";
 
-import { registerSW } from "virtual:pwa-register";
+import { registerSW } from 'virtual:pwa-register'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -11,7 +11,12 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-if ("serviceWorker" in navigator) {
-  // && !/localhost/.test(window.location)) {
-  registerSW();
-}
+const updateSW = registerSW({
+  onNeedRefresh() {
+    console.log("Needs refresh");
+    updateSW();
+  },
+  onOfflineReady() {
+    console.log("Offline ready");
+  },
+})

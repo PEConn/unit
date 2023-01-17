@@ -6,16 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="https://glitch.com/favicon.ico" />
     <meta name="theme-color" content="#FFFFA0">
-    <link rel="manifest" href="/manifest.json">
+    <!--<link rel="manifest" href="/manifest.json">-->
     <link rel="icon" href="https://cdn.glitch.global/5ecd9d32-71f4-420b-ad21-eeaafcb59156/favicon.ico?v=1644858015640"/>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/index.jsx"></script>
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js');
-      }
-    </script>
   </body>
 </html>
