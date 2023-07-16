@@ -1,6 +1,6 @@
 // { id: 1, name: "Beer", amount: "125ml", percentage: 4.1 }
 
-import { roundTo } from "./utils";
+import { getFormattedDate, roundTo } from "./utils";
 
 export function getAmountInMl(drink) {
   const amount = drink.amount;
@@ -24,4 +24,14 @@ export function getUnits(drink) {
   const amount = getAmountInMl(drink);
   const units = (drink.percentage * amount) / 1000;
   return roundTo(units, 1);
+}
+
+export function getTotalUnits(drinks) {
+  return drinks.reduce((acc, drink) => acc + getUnits(drink), 0);
+}
+
+export function getUnitsToday(drinks) {
+  const today = getFormattedDate();
+
+  return getTotalUnits(drinks.filter((d) => d.date == today));
 }
