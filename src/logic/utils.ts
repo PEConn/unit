@@ -6,3 +6,7 @@ export function roundTo(number: number, decimalPlaces: number): number {
 export function getFormattedDate(): string {
   return new Date().toLocaleString('en-GB', {  weekday: 'short', month: 'short', day: 'numeric' });
 }
+
+export function formatDate(date: Date): string {
+  return date.toLocaleString('en-GB', {  weekday: 'short', month: 'short', day: 'numeric' });
+}

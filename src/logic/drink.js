@@ -2,6 +2,16 @@
 
 import { getFormattedDate, roundTo } from "./utils";
 
+export function makeDrink(id, name, amount, percentage, date) {
+  return {
+    id: id,
+    name: name,
+    amount: amount,
+    percentage: percentage,
+    date: date
+  };
+}
+
 export function getAmountInMl(drink) {
   const amount = drink.amount;
 
