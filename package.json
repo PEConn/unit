@@ -4,18 +4,21 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "start": "vite build && vite preview",
-    "build": "vite build",
+    "start": "tsc && vite build && vite preview",
+    "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^1.0.7",
-    "vite": "^2.8.0",
-    "vite-plugin-pwa": "^0.11.13",
-    "workbox-precaching": "^6.4.2"
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.0.3",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.4",
+    "vite-plugin-pwa": "^0.16.4",
+    "workbox-precaching": "^7.0.0"
   }
 }
