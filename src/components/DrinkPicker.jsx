@@ -59,6 +59,7 @@ export default function DrinkPicker({ addDrink }) {
 
       <h3>Percentage</h3>
       <input
+        data-testid="percentage-input"
         className="percentage-input"
         type="number"
         min="0"
@@ -85,6 +86,7 @@ export default function DrinkPicker({ addDrink }) {
       <p>Remembered to drink some water!</p>
 
       <button
+      data-testid="add-drink"
         popovertarget="drink-reminder-popover"
         className="add-drink"
         onClick={onSubmit}>

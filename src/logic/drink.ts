@@ -2,7 +2,22 @@
 
 import { getFormattedDate, roundTo } from "./utils";
 
-export function makeDrink(id, name, amount, percentage, date) {
+interface Drink {
+  id: number,  // eg: 1
+  name: string,  // eg: "Beer"
+  amount: string,  // eg: "125.ml"
+  percentage: number,  // eg: 4.1
+  date: string,  // eg: "Thu, 17 Aug"
+}
+
+interface DrinkWithoutId {
+  name: string,
+  amount: string,
+  percentage: number,
+  date: string,
+}
+
+export function makeDrink(id: number, name: string, amount: string, percentage: number, date: string): Drink {
   return {
     id: id,
     name: name,
@@ -12,7 +27,7 @@ export function makeDrink(id, name, amount, percentage, date) {
   };
 }
 
-export function getAmountInMl(drink) {
+export function getAmountInMl(drink: Drink): number {
   const amount = drink.amount;
 
   if (amount.endsWith("ml")) {
@@ -30,17 +45,17 @@ export function getAmountInMl(drink) {
   return 0;
 }
 
-export function getUnits(drink) {
+export function getUnits(drink: Drink) {
   const amount = getAmountInMl(drink);
   const units = (drink.percentage * amount) / 1000;
   return roundTo(units, 1);
 }
 
-export function getTotalUnits(drinks) {
+export function getTotalUnits(drinks: Drink[]) {
   return drinks.reduce((acc, drink) => acc + getUnits(drink), 0);
 }
 
-export function getUnitsToday(drinks) {
+export function getUnitsToday(drinks: Drink[]) {
   const today = getFormattedDate();
 
   return getTotalUnits(drinks.filter((d) => d.date == today));
