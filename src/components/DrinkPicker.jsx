@@ -5,7 +5,11 @@ import { getFormattedDate } from '../logic/utils';
 
 export default function DrinkPicker({ addDrink }) {
   const drinks = [ "Beer", "Wine", "Spirit", "Liqueur", "Low %" ];
-  const amounts = [ "25ml", "50ml", "125ml", "250ml", "Half Pint", "330ml", "Pint", "660ml" ];
+  const amounts = [
+    "25ml", "50ml", "125ml", "250ml",
+    "330ml", "440ml", "660ml",
+    "1/3 Pint", "1/2 Pint", "2/3 Pint", "Pint"
+  ];
 
   const [drink, setDrink] = useState(drinks[0]);
   const [amount, setAmount] = useState(amounts[6]);
@@ -45,7 +49,7 @@ export default function DrinkPicker({ addDrink }) {
   } else if (drink === "Low %") {
     sliderMin = 0;
     sliderMax = 3;
-    sliderStep = 0.5;
+    sliderStep = 0.1;
   }
 
   useEffect(() => {

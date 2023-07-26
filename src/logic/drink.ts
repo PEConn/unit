@@ -34,13 +34,10 @@ export function getAmountInMl(drink: Drink): number {
     return parseInt(amount.substring(0, amount.length - 2));
   }
 
-  if (amount == "Pint") {
-    return 568;
-  }
-
-  if (amount == "Half Pint") {
-    return 568 / 2;
-  }
+  if (amount == "Pint")     return 568;
+  if (amount == "2/3 Pint") return 568 * 2 / 3;
+  if (amount == "1/2 Pint") return 568 / 2;
+  if (amount == "1/3 Pint") return 568 / 3;
 
   return 0;
 }
