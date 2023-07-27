@@ -2,17 +2,27 @@ import React, { useEffect, useState } from 'react';
 
 import RadioGroup from './RadioGroup';
 import { getFormattedDate } from '../logic/utils';
+import { DRINK_TYPES } from '../logic/drink';
 
 export default function DrinkPicker({ addDrink }) {
-  const drinks = [ "Beer", "Wine", "Spirit", "Liqueur", "Low %" ];
-  const amounts = [
-    "25ml", "50ml", "125ml", "250ml",
-    "330ml", "440ml", "660ml",
-    "1/3 Pint", "1/2 Pint", "2/3 Pint", "Pint"
-  ];
-
+  const drinks = Array.from(DRINK_TYPES.keys());
   const [drink, setDrink] = useState(drinks[0]);
-  const [amount, setAmount] = useState(amounts[6]);
+
+  const amounts = DRINK_TYPES.get(drink);
+  const [amount, setAmount] = useState(amounts[amounts.length - 1]);
+
+  useEffect(() => {
+    // TODO: Push info into a "DrinkType" class - eg, what the default amount
+    // should be, along with the slider steps below.
+    if (drink === "Beer" || drink == "Low %" || drink == 'Strong Beer') {
+      setAmount("Pint");
+    } else if (drink === "Wine") {
+      setAmount("125ml");
+    } else {
+      setAmount("50ml");
+    }
+  }, [drink]);
+
   const [percentage, setPercentage] = useState(4.0);
 
   const onSubmit = (e) => {
@@ -50,7 +60,12 @@ export default function DrinkPicker({ addDrink }) {
     sliderMin = 0;
     sliderMax = 3;
     sliderStep = 0.1;
+  } else if (drink === "Strong Beer") {
+    sliderMin = 7;
+    sliderMax = 15;
+    sliderStep = 0.1;
   }
+
 
   useEffect(() => {
     setPercentage((sliderMin + sliderMax) / 2);

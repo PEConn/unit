@@ -27,6 +27,25 @@ export function makeDrink(id: number, name: string, amount: string, percentage: 
   };
 }
 
+const SHOT_AMOUNTS = [
+  "25ml", "50ml", "100ml"
+]
+const WINE_AMOUNTS = [
+  "125ml", "175ml", "250ml", "375ml", "500ml", "750ml"
+]
+const BEER_AMOUNTS = [
+  "330ml", "440ml", "660ml",
+  "1/3 Pint", "1/2 Pint", "2/3 Pint", "Pint"
+]
+
+export const DRINK_TYPES: Map<string, Array<string>> = new Map();
+DRINK_TYPES.set('Beer', BEER_AMOUNTS);
+DRINK_TYPES.set('Wine', WINE_AMOUNTS);
+DRINK_TYPES.set('Spirit', SHOT_AMOUNTS);
+DRINK_TYPES.set('Liqueur', SHOT_AMOUNTS);
+DRINK_TYPES.set('Low %', BEER_AMOUNTS);
+DRINK_TYPES.set('Strong Beer', BEER_AMOUNTS);
+
 export function getAmountInMl(drink: Drink): number {
   const amount = drink.amount;
 
