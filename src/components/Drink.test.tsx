@@ -1,4 +1,5 @@
 import { makeDrink } from '../logic/drink'
+// @ts-ignore
 import Drink from './Drink';
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
@@ -8,7 +9,7 @@ import { hasTextContent } from '../test/util';
 // TODO: Figure out type definitions for above.
 
 describe('Drink component', () => {
-    const drink = makeDrink(12, "Beer", "200ml", "4", "Today");
+    const drink = makeDrink(12, "Beer", "200ml", 4, "Today");
 
     it('displays', () => {
         render(<Drink drink={drink} removeDrink={vi.fn()} />);

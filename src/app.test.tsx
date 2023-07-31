@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { hasTextContent } from './test/util';
 
+// @ts-ignore
 import Home from "./app.jsx";
 
 async function addDrink(drink: string, amount: string, percentage?: string) {
