@@ -3,8 +3,10 @@
 :root {
   --color-bg: #011F28;
   --color-text-main: #C6E7E5;
+  --color-button-text: black;
   --color-radio: #1E6685;
   --color-button: #CCCCCC;
+  --color-button-pressed: #555555;
   --color-primary: #AFECE0;
   --wrapper-height: 85vh;
   --image-max-width: 320px;
@@ -49,11 +51,38 @@ body {
 }
 
 button {
-  background: var(--color-button);
+  background-color: var(--color-button);
+  border-radius: 2px;
+  border-style: none;
+  box-sizing: border-box;
+  color: var(--color-button-text);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  height: 30px;
+  line-height: 10px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:hover,
+button:active {
+  background-color: var(--color-button-pressed);
 }
 
 .radio {
   background: var(--color-radio);
+  border-radius: 2px;
   margin: 5px;
   padding: 3px;
   box-sizing: border-box;
