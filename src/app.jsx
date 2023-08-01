@@ -9,6 +9,7 @@ import { roundTo } from "./logic/utils";
 import "./styles/styles.css";
 
 const DRINKS_KEY = "drinks";
+const LIMIT = 14;
 
 export default function Home() {
   const [drinks, setDrinksRaw] = useState([
@@ -54,16 +55,16 @@ export default function Home() {
       {drinks.length == 0 && <p>Nothing added yet</p>}
       <p>{roundTo(totalToday, 1)} units today. {roundTo(total, 1)} units in total.</p>
 
-      {totalToday > 14 && <p className="warning">You have exceeded your weekly limit.</p> }
+      {total > LIMIT && <p className="warning">You have exceeded your weekly limit.<br />Drink some water.</p> }
 
-      {totalToday <= 14 && <p>Your progress towards this week's limit:</p> }
+      {total <= LIMIT && <p>You are {roundTo(100 * total / LIMIT, 0)}% towards this week's limit:</p> }
 
-      {totalToday <= 14 &&<div className="sliderMinMax">
+      {total <= LIMIT &&<div className="sliderMinMax">
         <span>0</span>
-        <span>14</span>
+        <span>{LIMIT}</span>
       </div> }
 
-      {totalToday <= 14 &&<input
+      {total <= LIMIT &&<input
         className="percentage-slider slider-red"
         type="range"
         min="0"
