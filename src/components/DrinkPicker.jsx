@@ -53,7 +53,7 @@ export default function DrinkPicker({ addDrink }) {
     sliderMax = 50;
     sliderStep = 1;
   } else if (drink === "Liqueur") {
-    sliderMin = 15;
+    sliderMin = 10;
     sliderMax = 30;
     sliderStep = 1;
   } else if (drink === "Low %") {
